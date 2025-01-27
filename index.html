@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Place Keeper</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body onload="app.onInit()">
+    <div class="container">
+      <header>
+        <h1>PLACE KEEPER</h1>
+      </header>
+      <nav>
+        <button onclick="app.onShowSection('.home')">🏠</button>
+        <button onclick="app.onShowSection('.map-container')">🗺️</button>
+        <button onclick="app.onShowPreferences()">⚙️</button>
+      </nav>
+      <main>
+        <section class="home">
+          <h1>Keeping Your Happy Places Closer—</h1>
+          <h1>One Mark at a Time!</h1>
+        </section>
+        <section class="map-container">
+          <section class="map"></section>
+          <section class="places">
+            <button
+              class="btn-user-loc"
+              onclick="app.onUserLocation()"
+            ></button>
+            <ul class="place-list"></ul>
+          </section>
+        </section>
+      </main>
+      <dialog class="user-pref-modal">
+        <form onsubmit="app.onSubmitPreferences()" method="dialog">
+          <h2>User Preferences</h2>
+          <div class="form-item">
+            <label for="email-input">E-Mail</label>
+            <input
+              type="email"
+              id="email-input"
+              placeholder="Insert your email here"
+              required
+            />
+          </div>
+          <div class="form-item">
+            <label for="age-input">Age</label>
+            <input
+              type="range"
+              id="age-input"
+              min="18"
+              max="120"
+              value="18"
+              onchange="app.renderAgeDisplay(this.value)"
+              oninput="app.renderAgeDisplay(this.value)"
+            />
+            <span class="age-display"></span>
+          </div>
+          <div class="form-item">
+            <span>Birth Date</span>
+            <input id="date-input" type="date" />
+          </div>
+          <div class="form-item">
+            <span>Birth Time</span>
+            <input id="time-input" type="time" />
+          </div>
+          <h2>Colors</h2>
+          <div class="form-item">
+            <span>Set Background Color</span>
+            <input
+              class="bg-color-input"
+              type="color"
+              oninput="document.body.style.backgroundColor = this.value;"
+            />
+          </div>
+          <div class="form-item">
+            <span>Set Text Color</span>
+            <input
+              class="txt-color-input"
+              type="color"
+              oninput="document.body.style.color = this.value;"
+            />
+          </div>
+          <div class="form-actions">
+            <button>Apply</button>
+            <button type="button" onclick="app.onCancel()">Cancel</button>
+          </div>
+        </form>
+      </dialog>
+      <footer>
+        <p>
+          This project was written with
+          <strong>Vanilla JavaScript ES6, HTML 5 & CSS</strong>.
+        </p>
+        <p>
+          Connect with me on
+          <a
+            href="https://www.linkedin.com/in/alon-mintz-38555a237/"
+            target="_blank"
+            >LinkedIn</a
+          >
+          😊
+        </p>
+      </footer>
+    </div>
+
+    <script type="module" src="js/app.controller.js"></script>
+  </body>
+</html>
