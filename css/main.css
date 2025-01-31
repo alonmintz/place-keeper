@@ -180,7 +180,6 @@ li {
   border: solid;
   border-radius: 10px;
   background-color: antiquewhite;
-  transition: transform 0.3s;
   overflow-x: hidden;
 }
 
