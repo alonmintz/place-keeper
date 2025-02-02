@@ -140,7 +140,7 @@ main {
 }
 
 .btn-user-loc {
-  background-image: url(../../img/user-loc.png);
+  background-image: url(../img/user-loc.png);
   background-size: cover;
   width: 3em;
   height: 3em;

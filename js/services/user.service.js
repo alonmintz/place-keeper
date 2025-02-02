@@ -27,11 +27,8 @@ function updateUser(updatedUser) {
 }
 
 function _createUser() {
-  console.log("_createUser()");
   let user = loadFromStorage(STORAGE_KEY);
-  console.log("user: ", user);
   if (user && user.length !== 0) return;
-  console.log("here");
   user = { ...defaultUser, id: makeId() };
   saveToStorage(STORAGE_KEY, user);
 }

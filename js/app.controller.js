@@ -17,7 +17,6 @@ window.app = {
 var gUser;
 
 async function onInit() {
-  console.log("onInit activated");
   try {
     await initUser();
     renderPreferences();
@@ -43,7 +42,6 @@ async function onInit() {
 async function initUser() {
   try {
     gUser = await userService.getUser();
-    console.log("gUser: ", gUser);
   } catch (err) {
     alert("error: ", err);
   }
@@ -64,7 +62,6 @@ function renderPreferences() {
 async function renderPlaces() {
   try {
     const places = await placeService.getPlaces();
-    console.log("place to render: ", places);
     const strHTML = places.map(
       (place) => `
       <li>
@@ -74,15 +71,14 @@ async function renderPlaces() {
       `
     );
 
-  const elPlaceList = document.querySelector(".place-list");
-  elPlaceList.innerHTML = strHTML.join("");
+    const elPlaceList = document.querySelector(".place-list");
+    elPlaceList.innerHTML = strHTML.join("");
   } catch (err) {
     alert("error: ", err);
   }
 }
 
 async function onRemovePlace(placeId) {
-  console.log("place to delete: ", placeId);
   try {
     await placeService.removePlace(placeId);
     await renderPlaces();
@@ -103,7 +99,6 @@ async function onUserLocation() {
       (position) => {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
-        console.log(`User Latitude: ${lat},User Longitude: ${lng}`);
         mapService.setMapCenter(lat, lng);
       },
       () => console.error("Unable to retrieve your location.")
@@ -126,7 +121,6 @@ function onShowPreferences() {
 }
 
 async function onSubmitPreferences() {
-  console.log("submit activated");
   const email = document.getElementById("email-input").value;
   const age = document.getElementById("age-input").value;
   const birthDate = document.getElementById("date-input").value;
@@ -154,7 +148,6 @@ async function onSubmitPreferences() {
 }
 
 function onCancel() {
-  console.log("cancel activated");
   renderPreferences();
   document.querySelector(".user-pref-modal").close();
 }

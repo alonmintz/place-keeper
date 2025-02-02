@@ -36,7 +36,6 @@ function _createPlaces() {
   if (places && places.length) return;
 
   places = gDemoPlaces.map((place) => _createPlace(place));
-  console.log("places created: ", places);
   saveToStorage(STORAGE_KEY, places);
 }
 

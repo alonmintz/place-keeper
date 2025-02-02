@@ -24,10 +24,7 @@ const { AdvancedMarkerElement } = await loader.importLibrary("marker");
 async function initMap(renderPlacesCB) {
   const places = await placeService.getPlaces();
 
-  console.log("place from mapService: ", places);
-
   gMarkers = [];
-  console.log("gMap: ", gMap);
 
   places.forEach((place) => {
     const position = { lat: place.lat, lng: place.lng };
@@ -45,8 +42,6 @@ async function initMap(renderPlacesCB) {
     });
     gMarkers.push(marker);
   });
-  console.log("gMarkers: ", gMarkers);
-  console.log("gMap: ", gMap);
 
   gMap.addListener("click", async (ev) => {
     const name = prompt("Place name?", "Place 1");
